@@ -113,7 +113,7 @@ const loadData = async () => {
     }
     const res = await getInstances(params)
     list.value = res.records || res.items || res.data || []
-    total.value = res.total || 0
+    total.value = res.total || list.value.length
   } catch (e) { /* ignore */ }
   loading.value = false
 }
@@ -143,9 +143,8 @@ const createInvitationInstance = async () => {
   }
   creating.value = true
   try {
-    const now = new Date()
     const instanceKey = `invitation_${Date.now()}`
-    const name = `邀请话题-${createForm.value.topic}-${now.toLocaleDateString()}`
+    const name = `邀请话题-${createForm.value.topic}`
     const params = {
       topic: createForm.value.topic,
       source: createForm.value.source || '',
