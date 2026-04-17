@@ -17,7 +17,7 @@ export const getJobs = (params) => request.get('/api/admin/jobs', { params })
 export const triggerJob = (id) => request.post(`/api/admin/jobs/${id}/trigger`)
 export const pauseJob = (id) => request.post(`/api/admin/jobs/${id}/pause`)
 export const resumeJob = (id) => request.post(`/api/admin/jobs/${id}/resume`)
-export const getArticles = (params) => request.get('/api/admin/articles', { params }).then(r => r?.records ?? r ?? [])
+export const getArticles = (params) => request.get('/api/admin/articles', { params })
 export const getArticleById = (id) => request.get(`/api/admin/articles/${id}`)
 export const getArticlePlatforms = () => request.get('/api/admin/articles/platforms')
 // Zhihu comment APIs
